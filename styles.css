@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+:root {
+    --start-gradient: hsl(249, 99%, 64%);
+    --end-gradient: hsl(278, 94%, 30%);
+    --red: hsl(0, 100%, 66%);
+    --white: hsl(0, 0%, 100%);
+    --light-grayish-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);
+}
+
+* {
+    font-family: 'Space Grotesk';
+}
+
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: start;
+    overflow: hidden;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 483px;
+    height: 100%;
+    justify-content: center;
+    align-items: end;
+    gap: 30px;
+    background-image: url(images/bg-main-desktop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-front {
+    display: flex;
+    flex-direction: column;
+    width: 447px;
+    height: 245px;
+    justify-content: space-between;
+    background-image: url(images/bg-card-front.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    color: var(--white);
+    transform: translateX(20%);
+}
+
+.card-front img {
+    width: 100px;
+    height: auto;
+    padding: 30px 30px 0px 30px;
+}
+
+.card-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 30px 30px 30px;
+}
+
+.card-details p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.card-details div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.card-details div p {
+    font-weight: 200;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card-back {
+    display: flex;
+    width: 447px;
+    height: 245px;
+    justify-content: end;
+    align-items: center;
+    background-image: url(images/bg-card-back.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: translateX(40%);
+}
+
+.card-back p {
+    margin: 0 55px 5px 0px;
+    color: var(--white);
+}
+
+main {
+    display: flex;
+    width: calc(100% - 483px);
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .form {
+    display: none;
+    margin-left: 600px;
+} */
+
+form {
+    width: 380px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-cv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.date div {
+    display: flex;
+    gap: 10px;
+}
+
+label {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.date div input[type="text"]{
+    width: 50px;
+}
+
+input[type="submit"] {
+    color: var(--white);
+    background-color: var(--very-dark-violet);
+    padding: 10px;
+    border: 2px solid var(--very-dark-violet);
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    border: 2px solid var(--very-dark-violet);
+    color: var(--very-dark-violet);
+    background-color: var(--white);
+}
+
+.completed {
+    flex-direction: column;
+    width: 250px;
+    height: 200px;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+
+}
+
+.completed img {
+    width: 60px;
+}
+
+h1 {
+    margin: 0;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--dark-grayish-violet);
+}
+
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: 2px solid var(--very-dark-violet);
+    border-radius: 5px;
+    color: var(--white);
+    background-color: var(--very-dark-violet);
+}
+
+button:hover {
+    cursor: pointer;
+    border: 2px solid var(--very-dark-violet);
+    color: var(--very-dark-violet);
+    background-color: var(--white);
+}
