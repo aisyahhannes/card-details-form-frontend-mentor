@@ -1,5 +1,6 @@
 const form = document.querySelector("form");
 const completed = document.getElementById("completed");
+const button = document.querySelector("button");
 
 document.addEventListener("DOMContentLoaded", function () {
     completed.style.display = "none";
@@ -20,17 +21,18 @@ const errorNumber = document.getElementById("error-number");
 const errorMonth = document.getElementById("error-month");
 const errorCVC = document.getElementById("error-cvc");
 
+// Reset error
 function resetError() {
     const inputs = ["name", "number", "month", "year", "cvc"];
     inputs.forEach(id => {
         document.getElementById(id).classList.remove("error-input");
-        document.querySelector(`error-${id}`).classList.remove("error-input");
-    }) 
+    });
 }
 
+// Input validation
 function validateInput() {
     event.preventDefault();
-    console.log("submitted");
+    resetError();
 
     // Clear error message
     errorName.textContent = "";
@@ -40,12 +42,15 @@ function validateInput() {
 
     let isValid = true;
 
+    // Add error class and message
     function error(input, error, message) {
         input.classList.add("error-input");
         error.textContent = message;
         error.classList.add("error");
         isValid = false;
     }
+
+    // -- START VALIDATION -- 
 
     // VALIDATE NAME
     if (cardname.value === "") {
@@ -60,8 +65,6 @@ function validateInput() {
     } else if (!/^[\d{16}\s]+$/.test(cardnumber.value)) {
         error(cardnumber, errorNumber, "Must be 16 digits");
     }
-
-    // -- VALIDATION -- 
 
     // VALIDATE DATE
     const todayDate = new Date();
@@ -82,6 +85,8 @@ function validateInput() {
 
     if (cardyear.value === "") {
         error(cardyear, errorMonth, "Can't be blank");
+    } else if (!/^\d{4}$/.test(cardyear.value)) {
+        error(cardyear, errorMonth, "Invalid year value");
     } else if (differences < 0) {
         error(cardyear, errorMonth, "Card is expired");
     }
@@ -95,13 +100,18 @@ function validateInput() {
 
     // -- END VALIDATION --
 
-    console.log(isValid);
     // Complete state
-    if (!isValid) {
-        // resetError();
-    } else {
+    if (isValid) {
         form.style.display = "none";
         completed.style.display = "flex";
     }
 
+    // Reset form
+    function resetForm() {
+        form.reset();
+        form.style.display = "flex";
+        completed.style.display = "none";
+    }
+
+    button.addEventListener("click", resetForm);
 }
